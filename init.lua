@@ -51,7 +51,7 @@ require('lazy').setup({
   'phpactor/phpactor',
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-  'ryanoasis/vim-devicons',
+  -- 'ryanoasis/vim-devicons',
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -110,7 +110,7 @@ require('lazy').setup({
         },
       },
       filters = {
-        dotfiles = true,
+        dotfiles = false,
       },
     }
   end,
@@ -207,7 +207,7 @@ require('lazy').setup({
         end, { expr = true, buffer = bufnr, desc = 'Jump to previous hunk' })
       end,
     },
-  }, 
+  },
 
   {
     -- Set lualine as statusline
