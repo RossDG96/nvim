@@ -14,12 +14,17 @@ vim.g.maplocalleader = ' '
 -- Map a key to execute the current Python file in a terminal
 vim.api.nvim_set_keymap('n', '<Leader>r', [[:term python3 %<CR>]], { noremap = true, silent = true })
 
+-- Key maps for dir-telescope.nvim
+vim.keymap.set("n", "<leader>fd", "<cmd>Telescope dir live_grep<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>pd", "<cmd>Telescope dir find_files<CR>", { noremap = true, silent = true })
+
 -- Tell Vim that blade is a valid filetype
 vim.filetype.add({
   pattern = {
     [".*%.blade.php"] = "blade",
   },
 })
+
 
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
@@ -75,6 +80,7 @@ require('lazy').setup({
     "tpope/vim-dotenv",
     "MunifTanjim/nui.nvim",
     "nvimtools/none-ls.nvim",
+    'kevinhwang91/promise-async'
   },
   cmd = { "Sail", "Artisan", "Composer", "Npm", "Yarn", "Laravel" },
   keys = {
@@ -110,7 +116,7 @@ require('lazy').setup({
         },
       },
       filters = {
-        dotfiles = false,
+        dotfiles = true,
       },
     }
   end,
@@ -254,6 +260,10 @@ require('lazy').setup({
         end,
       },
     },
+  },
+
+  {
+    'princejoogie/dir-telescope.nvim',
   },
 
   {
