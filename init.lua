@@ -546,13 +546,27 @@ require('mason-lspconfig').setup()
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  -- clangd = {},
-  -- gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
-  -- tsserver = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-
+  intelephense = {
+    settings = {
+      intelephense = {
+        files = {
+          maxSize = 5000000,  -- adjust if needed for large projects
+        },
+        stubs = {
+          "apache", "bcmath", "bz2", "calendar", "com_dotnet", "Core",
+          "ctype", "curl", "date", "dba", "dom", "enchant", "exif",
+          "fileinfo", "filter", "ftp", "gd", "gettext", "gmp", "hash",
+          "iconv", "imap", "interbase", "intl", "json", "ldap", "libxml",
+          "mbstring", "mysqli", "mysql", "openssl", "pcntl", "pcre", "PDO",
+          "pdo_mysql", "pdo_pgsql", "Phar", "posix", "readline", "recode",
+          "Reflection", "session", "shmop", "SimpleXML", "snmp", "soap",
+          "sockets", "sodium", "SPL", "standard", "superglobals", "sysvmsg",
+          "sysvsem", "sysvshm", "tidy", "tokenizer", "xml", "xmlreader",
+          "xmlrpc", "xmlwriter", "xsl", "Zend OPcache", "zip", "zlib",
+        },
+      },
+    },
+  },
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
